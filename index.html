@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
+    <script src="script.js" defer></script>
     <title>Calculator</title>
 </head>
 
 <body>
     <div class="calculator">
         <div class='screen'>
-            125
+
         </div>
         <div class="non-digits">
             <button id="clear">CLEAR</button>
@@ -20,28 +21,28 @@
         </div>
         <div class="digits">
             <div class="digitline">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>/</button>
+                <button class="number">7</button>
+                <button class="number">8</button>
+                <button class="number">9</button>
+                <button class="operator">/</button>
             </div>
             <div class="digitline">
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>x</button>
+                <button class="number">4</button>
+                <button class="number">5</button>
+                <button class="number">6</button>
+                <button class="operator">x</button>
             </div>
             <div class="digitline">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>-</button>
+                <button class="number">1</button>
+                <button class="number">2</button>
+                <button class="number">3</button>
+                <button class="operator">-</button>
             </div>
             <div class="digitline">
-                <button>.</button>
-                <button>0</button>
-                <button>=</button>
-                <button>+</button>
+                <button class="number">.</button>
+                <button class="number">0</button>
+                <button id="equal">=</button>
+                <button class="operator">+</button>
             </div>
         </div>
     </div>
