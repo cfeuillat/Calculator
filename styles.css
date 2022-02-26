@@ -1,0 +1,65 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: #aaa;
+    border-radius: 10px;
+    border: 1px solid black;
+    align-items: stretch;
+    padding: 10px;
+}
+
+.screen {
+    margin-bottom: 3px;
+    border: 1px solid black;
+    height: 30px;
+    background-color: #eee;
+    text-align: right;
+    padding-top: 30px;
+    padding-right: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.non-digits {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.non-digits button {
+    flex: 1;
+    border: solid 1px black;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 0px;
+}
+
+#clear {
+    background-color: #faa;
+}
+
+#delete {
+    background-color: #aaf;
+}
+
+.digitline {
+    display: flex;
+    gap: 5px;
+}
+
+.digitline button {
+    flex-grow: 1;
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: #eee;
+    font-weight: bold;
+}
