@@ -36,8 +36,7 @@ const clear = document.querySelector("#clear")
 
 
 
-let displayValue = Number(screen.textContent);
-let currVal;
+let currVal = Number(screen.textContent);
 let operatorValue;
 let operation = Array();
 
@@ -51,12 +50,12 @@ number.forEach((num) => {
         } else {
             screen.textContent += num.textContent;
         }
-        displayValue = Number(screen.textContent);
+        currVal = Number(screen.textContent);
         if (operation.length == 2) {
-            currVal = operate(operation[0], operation[1], displayValue);
+            currVal = operate(operation[0], operation[1], currVal);
             operation = [currVal]
         } else {
-            operation.push(displayValue);
+            operation.push(currVal);
         }
 
     })
@@ -64,7 +63,7 @@ number.forEach((num) => {
 
 operator.forEach((el) => {
     el.addEventListener('click', function() {
-        screen.textContent = operation[0];
+        screen.textContent = currVal;
         operatorValue = el.textContent;
         operation.push(operatorValue);
 
@@ -73,11 +72,11 @@ operator.forEach((el) => {
 
 equal.addEventListener('click', function() {
     screen.textContent = operation[0];
-    displayValue = screen.textContent;
+    currVal = screen.textContent;
 })
 
 clear.addEventListener('click', () => {
     screen.textContent = '';
-    displayValue = 0
+    currVal = 0
     operation = [];
 })
