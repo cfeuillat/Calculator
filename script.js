@@ -33,45 +33,51 @@ const operator = document.querySelectorAll(".operator")
 const equal = document.querySelector("#equal")
 const screen = document.querySelector(".screen")
 const clear = document.querySelector("#clear")
-
+const del = document.querySelector("#delete")
 
 
 let currVal = Number(screen.textContent);
 let operatorValue;
 let operation = Array();
+let restartScreen = false;
 
 number.forEach((num) => {
     num.addEventListener('click', function() {
         if (isNaN(screen.textContent)) {
             screen.textContent = '';
         }
-        if ("+ x / -".includes(operation[1])) {
+        if (restartScreen) {
             screen.textContent = num.textContent;
+            restartScreen = false;
         } else {
             screen.textContent += num.textContent;
         }
         currVal = Number(screen.textContent);
-        if (operation.length == 2) {
-            currVal = operate(operation[0], operation[1], currVal);
-            operation = [currVal]
-        } else {
-            operation.push(currVal);
-        }
+
 
     })
 })
 
 operator.forEach((el) => {
     el.addEventListener('click', function() {
-        screen.textContent = currVal;
+
         operatorValue = el.textContent;
-        operation.push(operatorValue);
+        operation.push(currVal);
+
+        if (operation.length == 3) {
+            currVal = operate(operation[0], operation[1], operation[2]);
+            screen.textContent = currVal;
+            operation = [currVal, operatorValue]
+        } else {
+            operation.push(operatorValue);
+        }
+        restartScreen = true;
 
     })
 })
 
 equal.addEventListener('click', function() {
-    screen.textContent = operation[0];
+    screen.textContent = operate(operation[0], operation[1], currVal);
     currVal = screen.textContent;
 })
 
@@ -79,4 +85,9 @@ clear.addEventListener('click', () => {
     screen.textContent = '';
     currVal = 0
     operation = [];
+})
+
+del.addEventListener('click', () => {
+    screen.textContent = screen.textContent.slice(0, -1);
+    currVal = Number(screen.textContent);
 })
