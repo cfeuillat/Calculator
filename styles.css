@@ -1,65 +1,98 @@
-.calculator {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    background-color: #aaa;
-    border-radius: 10px;
-    border: 1px solid black;
-    align-items: stretch;
-    padding: 10px;
-}
-
-.screen {
-    margin-bottom: 3px;
-    border: 1px solid black;
-    height: 30px;
-    background-color: #eee;
-    text-align: right;
-    padding-top: 30px;
-    padding-right: 10px;
-    font-size: 20px;
-    border-radius: 5px;
-}
-
-.non-digits {
-    display: flex;
-    gap: 5px;
-    justify-content: space-between;
-    height: 40px;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.non-digits button {
-    flex: 1;
-    border: solid 1px black;
-    font-size: 15px;
-    border-radius: 5px;
-    margin: 0px;
-}
-
-#clear {
-    background-color: #faa;
-}
-
-#delete {
-    background-color: #aaf;
-}
-
-.digitline {
-    display: flex;
-    gap: 5px;
-}
-
-.digitline button {
-    flex-grow: 1;
-    height: 40px;
-    width: 40px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: solid 1px black;
-    border-radius: 5px;
-    background-color: #eee;
-    font-weight: bold;
-}
+    body {
+        display: flex;
+        justify-content: center;
+        margin-top: 70px;
+        background-color: rgba(170, 170, 170, 0.158);
+    }
+    
+    .calculator {
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        height: 500px;
+        background-color: #aaa;
+        border-radius: 10px;
+        border: 1px solid black;
+        padding: 20px;
+    }
+    
+    .header {
+        margin-bottom: 3px;
+        border: 1px solid black;
+        height: 20px;
+        background-color: #eee;
+        text-align: right;
+        padding-top: 30px;
+        padding-right: 10px;
+        font-size: 20px;
+        border-radius: 5px;
+        flex-grow: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        padding-right: 15px;
+    }
+    
+    .screen {
+        font-size: 35px;
+    }
+    
+    .non-digits {
+        display: flex;
+        gap: 5px;
+        justify-content: space-between;
+        height: 40px;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        flex-grow: 0.5;
+    }
+    
+    .non-digits button {
+        flex: 1;
+        border: solid 1px black;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 5px;
+        margin: 0px;
+    }
+    
+    #clear {
+        background-color: #faa;
+    }
+    
+    #delete {
+        background-color: #aaf;
+    }
+    
+    .digits {
+        flex-grow: 7;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .digitline {
+        display: flex;
+        align-items: stretch;
+        flex-grow: 1;
+        gap: 5px;
+    }
+    
+    .digitline button {
+        flex-grow: 1;
+        margin-top: 5px;
+        border: solid 1px black;
+        border-radius: 5px;
+        background-color: #eee;
+        font-weight: bold;
+        flex-grow: 1;
+        font-size: 20px;
+        width: 100%;
+    }
+    
+    button:hover {
+        background-color: #05012531;
+        transition: 0.1s;
+    }
