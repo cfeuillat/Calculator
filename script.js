@@ -3,7 +3,7 @@ function add(a, b) {
 }
 
 function substract(a, b) {
-    return a - b;
+    return Number(a) - Number(b);
 }
 
 function multiply(a, b) {
@@ -14,7 +14,7 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(operator, a, b) {
+function operate(a, operator, b) {
     if (operator == '+') {
         return add(a, b);
     } else if (operator == '-') {
@@ -37,31 +37,47 @@ const clear = document.querySelector("#clear")
 
 
 let displayValue = Number(screen.textContent);
+let currVal;
 let operatorValue;
-let operation;
+let operation = Array();
 
 number.forEach((num) => {
     num.addEventListener('click', function() {
         if (isNaN(screen.textContent)) {
             screen.textContent = '';
         }
-        screen.textContent += num.textContent;
+        if ("+ x / -".includes(operation[1])) {
+            screen.textContent = num.textContent;
+        } else {
+            screen.textContent += num.textContent;
+        }
         displayValue = Number(screen.textContent);
+        if (operation.length == 2) {
+            currVal = operate(operation[0], operation[1], displayValue);
+            operation = [currVal]
+        } else {
+            operation.push(displayValue);
+        }
+
     })
 })
 
 operator.forEach((el) => {
     el.addEventListener('click', function() {
+        screen.textContent = operation[0];
         operatorValue = el.textContent;
-        operation = [displayValue, el.textContent]
-        screen.textContent = el.textContent;
-        displayValue = '';
+        operation.push(operatorValue);
+
     })
 })
 
 equal.addEventListener('click', function() {
-    screen.textContent = operate(operation[1], operation[0], displayValue);
+    screen.textContent = operation[0];
     displayValue = screen.textContent;
 })
 
-clear.addEventListener('click', () => { screen.textContent = '' })
+clear.addEventListener('click', () => {
+    screen.textContent = '';
+    displayValue = 0
+    operation = [];
+})
