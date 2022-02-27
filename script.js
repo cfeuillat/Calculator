@@ -34,6 +34,8 @@ const equal = document.querySelector("#equal")
 const screen = document.querySelector(".screen")
 const clear = document.querySelector("#clear")
 const del = document.querySelector("#delete")
+const dot = document.querySelector("#dot")
+const buttons = document.querySelectorAll("button")
 
 
 let currVal = Number(screen.textContent);
@@ -58,6 +60,14 @@ number.forEach((num) => {
     })
 })
 
+dot.addEventListener('click', function() {
+    if ((screen.textContent).includes('.')) {
+        dot.disabled = true;
+    } else {
+        screen.textContent += '.';
+    }
+})
+
 operator.forEach((el) => {
     el.addEventListener('click', function() {
 
@@ -72,14 +82,21 @@ operator.forEach((el) => {
             operation.push(operatorValue);
         }
         restartScreen = true;
+        dot.disabled = false;
 
     })
 })
 
 equal.addEventListener('click', function() {
-    screen.textContent = operate(operation[0], operation[1], currVal);
+    if (operation.length == 2) {
+        screen.textContent = operate(operation[0], operation[1], currVal);
+    } else {
+        screen.textContent = currVal;
+    }
     currVal = screen.textContent;
+    operation = [];
 })
+
 
 clear.addEventListener('click', () => {
     screen.textContent = '';
